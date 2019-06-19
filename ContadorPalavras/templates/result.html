@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+    <head>
+        <title>Contador de palavras</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h2 style="text-align: center">Contador de palavras em Django!</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div style="text-align: right"><a href="/main"><button class="btn btn-success">Voltar</button></a></div>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>O texto escrito foi:</h4>
+                            <p style="text-align: justify">{{ original_text }}</p>
+                            <br>
+                            <p><strong>O texto possui {{ words_quantity }} palavras.</strong></p>
+                            <br> 
+                            <h4>Contagem das palavras: </h4>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr style="text-align: center">
+                                        <th scope="col">Palavra</th>
+                                        <th scope="col">Contagem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for key, values in counts.items %}
+                                    <tr>
+                                        <td style="text-align: center">{{ key }}</td>
+                                        
+                                        <td style="text-align: center">{{ values }}</td>
+                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+
+</html>
